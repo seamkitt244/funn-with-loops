@@ -97,8 +97,9 @@ namespace fun_with_loops
             starSize = 50;
 
             //test
-            while (pixelGrow < 50)
+            while (pixelGrow < 70)
             {
+                if ()
                 r = 255;
                 g = 160;
                 b = 0;
@@ -110,6 +111,11 @@ namespace fun_with_loops
                 Thread.Sleep(5);
                 //CHANGE
                 pixelGrow = pixelGrow + 2;
+                if (pixelGrow < 50)
+                {
+                    formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
+                }
+
             }
         }
 
