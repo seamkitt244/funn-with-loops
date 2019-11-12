@@ -99,21 +99,29 @@ namespace fun_with_loops
             //test
             while (pixelGrow < 70)
             {
-                if ()
-                r = 255;
-                g = 160;
-                b = 0;
-                drawBrush.Color = Color.FromArgb(r, g, b);
-                //act
-                formGraphics.Clear(Color.Black);
-                formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
+                if (pixleGrow <= 50)
+                {
+                    r = 255;
+                    g = 160;
+                    b = 0;
+                    drawBrush.Color = Color.FromArgb(r, g, b);
+                    //act
+                    formGraphics.Clear(Color.Black);
+                    formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
 
-                Thread.Sleep(5);
-                //CHANGE
-                pixelGrow = pixelGrow + 2;
+                    Thread.Sleep(5);
+                    //CHANGE
+                    pixelGrow = pixelGrow + 2;
+                }
+                
                 if (pixelGrow < 50)
                 {
+                    r = 255;
+                    g = 160;
                     formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
+                    r = r - 10;
+                    g = g - 10;
+                    pixelGrow++;
                 }
 
             }
@@ -138,10 +146,10 @@ namespace fun_with_loops
                 while (counter <= 7)//r<256
                 {
                     if (bad == num1)
-                    {num1 = randGen.Next(1, 8);bad2 = bad;}
+                    { num1 = randGen.Next(1, 8); bad2 = bad; }
 
-                    else if (bad2 == num1 )
-                    {num1 = randGen.Next(1, 8);bad3 = num2;}
+                    else if (bad2 == num1)
+                    { num1 = randGen.Next(1, 8); bad3 = num2; }
 
                     else if (bad3 == num1)
                     { num1 = randGen.Next(1, 8); bad4 = bad3; }
