@@ -7,6 +7,7 @@ namespace fun_with_loops
 {
     public partial class Form1 : Form
     {
+        const int MAX = 50;
         Random randGen = new Random();
         int num1, num2, button, counter = 0;
         public Form1()
@@ -97,33 +98,26 @@ namespace fun_with_loops
             starSize = 50;
 
             //test
-            while (pixelGrow < 70)
+            r = 255;
+            g = 160;
+            b = 0;
+            while (pixelGrow <= 70)
             {
-                if (pixleGrow <= 50)
-                {
-                    r = 255;
-                    g = 160;
-                    b = 0;
-                    drawBrush.Color = Color.FromArgb(r, g, b);
-                    //act
-                    formGraphics.Clear(Color.Black);
-                    formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
-
-                    Thread.Sleep(5);
-                    //CHANGE
-                    pixelGrow = pixelGrow + 2;
-                }
-                
-                if (pixelGrow < 50)
-                {
-                    r = 255;
-                    g = 160;
-                    formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
-                    r = r - 10;
-                    g = g - 10;
-                    pixelGrow++;
-                }
-
+                drawBrush.Color = Color.FromArgb(r, g, b);
+                //act
+                formGraphics.Clear(Color.Black);
+                formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
+                Thread.Sleep(5);
+                //CHANGE
+                pixelGrow = pixelGrow + 2;
+            }
+            while (pixelGrow <= 100)
+            {
+                formGraphics.FillEllipse(drawBrush, x - pixelGrow / 2, y - pixelGrow / 2, starSize + pixelGrow, starSize + pixelGrow);
+                Thread.Sleep(5);
+                r = r - 10;
+                g = g - 10;
+                pixelGrow = pixelGrow + 1;
             }
         }
 
@@ -141,36 +135,39 @@ namespace fun_with_loops
             }
             else if (button == 2)
             {
-                int bad = 0, bad2 = 0, bad3 = 0, bad4 = 0, bad5 = 0, bad6 = 0, bad7 = 0; outputLabel.Visible = true;
-                num1 = randGen.Next(1, 8);
-                while (counter <= 7)//r<256
-                {
-                    if (bad == num1)
-                    { num1 = randGen.Next(1, 8); bad2 = bad; }
+                outputLabel.Text = "  ";
+                button5.Visible = false;
+                int num2 = 0, num3 = 0, num4 = 0, num5 = 0, num6 = 0, num7 = 0; outputLabel.Visible = true;
+                num1 = randGen.Next(1, MAX);
+                num2 = randGen.Next(1, MAX);
+                num3 = randGen.Next(1, MAX);
+                num4 = randGen.Next(1, MAX);
+                num5 = randGen.Next(1, MAX);
+                num6 = randGen.Next(1, MAX);
+                num7 = randGen.Next(1, MAX);
 
-                    else if (bad2 == num1)
-                    { num1 = randGen.Next(1, 8); bad3 = num2; }
+                while (num2 == num1)//r<256
+                { num2 = randGen.Next(1, 8); }
 
-                    else if (bad3 == num1)
-                    { num1 = randGen.Next(1, 8); bad4 = bad3; }
+                while (num3 == num2 || num3 == num1)
+                { num3 = randGen.Next(1, MAX); }
 
-                    else if (bad4 == num1)
-                    { num1 = randGen.Next(1, 8); bad5 = bad4; }
+                while (num4 == num3 || num4 == num2 || num4 == num1)
+                { num4 = randGen.Next(1, MAX); }
 
-                    else if (bad5 == num1)
-                    { num1 = randGen.Next(1, 8); bad6 = bad5; }
+                while (num5 == num4 || num5 == num3 || num5 == num2 || num5 == num1)
+                { num5 = randGen.Next(1, MAX); }
 
-                    else if (bad6 == num1)
-                    { num1 = randGen.Next(1, 8); bad7 = bad6; }
+                while (num6 == num5 || num6 == num4 || num6 == num3 || num6 == num2 || num6 == num1)
+                { num6 = randGen.Next(1, MAX); }
 
-                    outputLabel.Text += num1 + " ";
-                    bad = num1;
-                    num1 = randGen.Next(1, 8);
-                    counter++;
+                while (num7 == num6 || num7 == num5 || num7 == num4 || num7 == num3 || num7 == num2 || num7 == num1)
+                { num7 = randGen.Next(1, MAX); }
 
-                }
-
+                outputLabel.Text += num1 + " " + num2 + " " + num3 + " " + num4 + " " + num5 + " " + num6 + " " + num7;
             }
+
         }
     }
 }
+
