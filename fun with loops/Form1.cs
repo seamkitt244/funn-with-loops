@@ -134,7 +134,7 @@ namespace fun_with_loops
                 }
             }
             else if (button == 2)
-            {
+            {//
                 outputLabel.Text = "  ";
                 button5.Visible = false;
                 int num2 = 0, num3 = 0, num4 = 0, num5 = 0, num6 = 0, num7 = 0; outputLabel.Visible = true;
